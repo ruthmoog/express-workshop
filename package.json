@@ -1,0 +1,22 @@
+{
+  "name": "express-workshop",
+  "version": "1.0.0",
+  "description": "Learning backend JS from the ground up with node and express",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ruthmoog/express-workshop.git"
+  },
+  "author": "Ruth Baker | ruthmoog",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ruthmoog/express-workshop/issues"
+  },
+  "homepage": "https://github.com/ruthmoog/express-workshop#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
