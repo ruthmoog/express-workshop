@@ -1,10 +1,12 @@
 var express = require('express');
+var formidable = require('express-formidable');
 var app = express();
 
 app.use(express.static('public'));
+app.use(formidable());
 
-app.post('/create-post', function() {
-  console.log('/create-post!')
+app.post('/create-post', function(request) {
+  console.log(request.fields)
 })
 
 app.listen(3000, function() {
