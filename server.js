@@ -19,6 +19,10 @@ app.post('/create-post', function(request) {
   });
 });
 
+app.get('/get-posts', function(request, response) {
+  response.sendFile(__dirname + '/data/posts.json');
+});
+
 app.listen(3000, function() {
   console.log('Server is listening on port 3000 and is ready to accept requests!  HOORAY!')
 });
