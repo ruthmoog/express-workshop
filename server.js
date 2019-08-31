@@ -7,12 +7,12 @@ var app = express();
 app.use(express.static("public"));
 app.use(formidable());
 
-app.post("/create-post", function(request) {
+app.post("/create-post", function(req, res) {
   fileSystem.readFile(__dirname + "/data/posts.json", function(error, file) {
     var blogPosts = JSON.parse(file);
     var timeStamp = Date.now();
 
-    blogPosts[timeStamp] = request.fields.blogpost;
+    blogPosts[timeStamp] = req.fields.blogpost;
     fileSystem.writeFile(
       __dirname + "/data/posts.json",
       JSON.stringify(blogPosts),
@@ -23,8 +23,15 @@ app.post("/create-post", function(request) {
   });
 });
 
-app.get("/get-posts", function(request, response) {
-  response.sendFile(__dirname + "/data/posts.json");
+app.get("/get-posts", function(req, res) {
+  res.sendFile(__dirname + "/data/posts.json");
+});
+
+app.get("/posts/:postId", function(req, res) {
+  fileSystem.readFile(__dirname + "/data/posts.json", function(error, file) {
+    var blogPosts = JSON.parse(file);
+    res.send(blogPosts[req.params.postId]);
+  });
 });
 
 app.listen(3000, function() {
